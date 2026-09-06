@@ -59,7 +59,10 @@ export default defineConfig({
             { text: '全部文章', link: '/posts/' },
             { text: 'Hello World：博客开篇', link: '/posts/hello-world' },
             { text: '夜间阅读：赛博朋克霓虹风配色实践', link: '/posts/dark-tech-night' },
-            { text: '测试能否上传文章', link: '/posts/test' }
+            { text: '样式与写作说明书', link: '/posts/style-guide' },
+            { text: '测试能否上传文章', link: '/posts/test' },
+            { text: '第一次博客', link: '/posts/first-post' },
+            { text: 'style', link: '/posts/my-post' }
           ]
         }
       ]
@@ -79,6 +82,36 @@ export default defineConfig({
           button: {
             buttonText: '搜索文章',
             buttonAriaLabel: '搜索文章'
+          }
+        },
+        // 中文搜索支持 + 标题优先：
+        // MiniSearch 默认按空白/标点切词，中文整句会成为一个超长词条，
+        // 导致只有"恰好是词条开头"的查询才能命中（如搜"说明书"找不到《样式与写作说明书》）。
+        // 这里将 CJK 连续片段逐字拆分索引（英文/数字仍整词保留），
+        // 配合 combineWith:'AND'，任意连续中文片段都能命中；
+        // 并把标题命中权重提到正文之上（VitePress 默认 title:4 / text:2 / titles:1）
+        miniSearch: {
+          options: {
+            tokenize: (text: string): string[] => {
+              const tokens: string[] = []
+              for (const seg of text.split(/[\s\p{P}\p{S}]+/u)) {
+                if (!seg) continue
+                // 按 Han / 非Han 边界二次切分：中文逐字成词，英文/数字整词保留
+                for (const part of seg.split(/(\p{Script=Han}+)/u)) {
+                  if (!part) continue
+                  if (/\p{Script=Han}/u.test(part)) {
+                    for (const ch of part) tokens.push(ch)
+                  } else {
+                    tokens.push(part.toLowerCase())
+                  }
+                }
+              }
+              return tokens
+            }
+          },
+          searchOptions: {
+            combineWith: 'AND',
+            boost: { title: 10, titles: 6, text: 1 }
           }
         }
       }

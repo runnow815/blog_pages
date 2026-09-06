@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "vitepress dev blog",
     "build": "vitepress build blog",
-    "preview": "vitepress preview blog"
+    "preview": "vitepress preview blog",
+    "patch:search": "node scripts/patch-vitepress-search.mjs",
+    "postinstall": "node scripts/patch-vitepress-search.mjs"
   },
   "engines": {
     "node": ">=18.0.0"

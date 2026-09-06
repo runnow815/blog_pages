@@ -1,8 +1,10 @@
----
+﻿---
 title: Hello World：博客开篇
 date: 2026-09-06
 tags: [随笔, VitePress]
 ---
+
+# Hello World：博客开篇
 
 欢迎来到 runnow815 的技术博客。这个站点基于 **VitePress 1.6.4 + Vue 3** 构建，使用 npm 管理依赖，通过 GitHub Actions 自动部署到 GitHub Pages，视觉上采用为夜间阅读设计的暗黑科技风。
 
