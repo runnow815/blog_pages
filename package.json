@@ -1,0 +1,20 @@
+{
+  "name": "runnow815-blog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "runnow815 的个人技术博客 —— VitePress 1.6.4 + Vue 3，暗黑科技风，部署于 GitHub Pages",
+  "scripts": {
+    "dev": "vitepress dev blog",
+    "build": "vitepress build blog",
+    "preview": "vitepress preview blog"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "vitepress": "1.6.4",
+    "vue": "^3.5.13"
+  }
+}

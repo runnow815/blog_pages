@@ -1,0 +1,451 @@
+﻿/* ============================================================
+   runnow815 blog · 赛博朋克暗黑风主题（唯一样式入口）
+   背景：深蓝黑 / 紫黑 ｜ 主色：霓虹粉 #ff2d95
+   辅色：电光蓝 #00e5ff / 荧光绿 #39ff14 / 霓虹紫 #b537f2
+   风格约束见 docs/PROJECT_CONSTRAINTS.md，改色只改本文件变量
+   ============================================================ */
+
+:root {
+  /* —— 背景层级：深蓝黑 → 紫黑（由深到浅） —— */
+  --vp-c-bg: #06010f;
+  --vp-c-bg-alt: #0a0418;
+  --vp-c-bg-soft: #120826;
+  --vp-c-bg-elv: #1a0d33;
+
+  /* —— 文本（高对比，微紫白） —— */
+  --vp-c-text-1: #f8f3ff;
+  --vp-c-text-2: #d3c2f5;
+  --vp-c-text-3: #9a86c4;
+
+  /* —— 分隔线 / 描边：霓虹粉辉光感 —— */
+  --vp-c-divider: rgba(255, 45, 149, 0.18);
+  --vp-c-gutter: rgba(0, 229, 255, 0.14);
+
+  /* —— 品牌主色：霓虹粉（链接 / 按钮 / 强调） —— */
+  --vp-c-brand-1: #ff2d95;
+  --vp-c-brand-2: #ff6bb6;
+  --vp-c-brand-3: #d1006f;
+  --vp-c-brand-soft: rgba(255, 45, 149, 0.16);
+
+  /* —— 赛博朋克霓虹色板（自定义变量，业务样式统一引用） —— */
+  --neon-pink: #ff2d95;
+  --neon-blue: #00e5ff;
+  --neon-green: #39ff14;
+  --neon-purple: #b537f2;
+  --neon-yellow: #ffe600;
+
+  /* 发光强度（统一管理 glow） */
+  --glow-pink: 0 0 12px rgba(255, 45, 149, 0.55), 0 0 32px rgba(255, 45, 149, 0.28);
+  --glow-blue: 0 0 12px rgba(0, 229, 255, 0.55), 0 0 32px rgba(0, 229, 255, 0.28);
+  --glow-green: 0 0 12px rgba(57, 255, 20, 0.5), 0 0 28px rgba(57, 255, 20, 0.22);
+
+  /* —— 字体：偏细、科技感 —— */
+  --vp-font-family-base:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  --vp-font-family-mono:
+    'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas',
+    'Courier New', monospace;
+
+  /* —— 首页 Hero：霓虹粉 → 紫 → 电光蓝 → 荧光绿 渐变文字 —— */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    115deg,
+    #ff2d95 8%,
+    #b537f2 38%,
+    #00e5ff 68%,
+    #39ff14 96%
+  );
+  --vp-home-hero-image-background-image:
+    radial-gradient(circle at 38% 42%, rgba(255, 45, 149, 0.32), transparent 62%),
+    radial-gradient(circle at 62% 58%, rgba(0, 229, 255, 0.26), transparent 64%);
+  --vp-home-hero-image-filter: blur(44px);
+
+  /* —— 代码块（Shiki one-dark-pro 之上的霓虹容器风格） —— */
+  --vp-code-block-bg: #0d0620;
+  --vp-code-line-highlight-color: rgba(0, 229, 255, 0.13);
+  --vp-code-line-number-color: rgba(154, 134, 196, 0.5);
+  --vp-code-copy-code-bg: rgba(0, 229, 255, 0.1);
+  --vp-code-copy-code-hover-bg: rgba(0, 229, 255, 0.22);
+  --vp-code-copy-code-border-color: rgba(0, 229, 255, 0.4);
+  --vp-code-tab-active-bar-color: #00e5ff;
+
+  /* —— 按钮：主按钮霓虹粉，次按钮电光蓝 —— */
+  --vp-button-brand-border: rgba(255, 45, 149, 0.8);
+  --vp-button-brand-text: #1a0010;
+  --vp-button-brand-bg: #ff2d95;
+  --vp-button-brand-hover-border: #ff8ac6;
+  --vp-button-brand-hover-text: #1a0010;
+  --vp-button-brand-hover-bg: #ff6bb6;
+  --vp-button-brand-active-border: #ff8ac6;
+  --vp-button-alt-border: rgba(0, 229, 255, 0.6);
+  --vp-button-alt-text: #8df3ff;
+  --vp-button-alt-bg: rgba(0, 229, 255, 0.08);
+  --vp-button-alt-hover-border: #7df0ff;
+  --vp-button-alt-hover-text: #d9fbff;
+  --vp-button-alt-hover-bg: rgba(0, 229, 255, 0.18);
+
+  /* —— 自定义区块（提示框等）：霓虹四色 —— */
+  --vp-custom-block-tip-border: rgba(57, 255, 20, 0.4);
+  --vp-custom-block-tip-text: #7dff5e;
+  --vp-custom-block-tip-bg: rgba(57, 255, 20, 0.08);
+  --vp-custom-block-info-border: rgba(0, 229, 255, 0.4);
+  --vp-custom-block-info-text: #7df0ff;
+  --vp-custom-block-info-bg: rgba(0, 229, 255, 0.08);
+  --vp-custom-block-warning-border: rgba(255, 230, 0, 0.4);
+  --vp-custom-block-warning-text: #fff07a;
+  --vp-custom-block-warning-bg: rgba(255, 230, 0, 0.08);
+  --vp-custom-block-danger-border: rgba(255, 45, 149, 0.5);
+  --vp-custom-block-danger-text: #ff85bd;
+  --vp-custom-block-danger-bg: rgba(255, 45, 149, 0.1);
+}
+
+/* ============ 全局基底：深蓝黑 + 多束霓虹环境光 ============ */
+
+body {
+  background-color: var(--vp-c-bg);
+  background-image:
+    radial-gradient(920px 460px at 8% -8%, rgba(255, 45, 149, 0.16), transparent 62%),
+    radial-gradient(860px 440px at 96% -4%, rgba(0, 229, 255, 0.14), transparent 60%),
+    radial-gradient(760px 520px at 6% 108%, rgba(181, 55, 242, 0.14), transparent 62%),
+    radial-gradient(680px 480px at 98% 106%, rgba(57, 255, 20, 0.07), transparent 60%);
+  background-attachment: fixed;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* —— CRT 扫描线覆盖层（独立层，不拦截交互） —— */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.22) 0px,
+    rgba(0, 0, 0, 0.22) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.5;
+}
+
+/* —— 缓慢下移的霓虹扫描带 —— */
+body::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 140px;
+  z-index: 9997;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(0, 229, 255, 0.05) 45%,
+    rgba(255, 45, 149, 0.06) 55%,
+    transparent
+  );
+  animation: scan-move 7s linear infinite;
+}
+
+@keyframes scan-move {
+  0% {
+    top: -15%;
+  }
+  100% {
+    top: 115%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+::selection {
+  background: rgba(255, 45, 149, 0.42);
+  color: #fff;
+  text-shadow: none;
+}
+
+/* —— 滚动条：霓虹粉 → 蓝 —— */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #08021a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(255, 45, 149, 0.55), rgba(0, 229, 255, 0.55));
+  border-radius: 8px;
+  border: 2px solid #08021a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff2d95, #00e5ff);
+  box-shadow: var(--glow-pink);
+}
+
+/* ============ 导航栏：毛玻璃 + 粉蓝辉光底线 ============ */
+
+.VPNavBar {
+  background-color: rgba(10, 4, 24, 0.72);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 45, 149, 0.35);
+  box-shadow: 0 0 22px rgba(255, 45, 149, 0.22), 0 0 42px rgba(0, 229, 255, 0.08);
+}
+
+.VPNavBar .VPNavBarTitle .title {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px rgba(255, 45, 149, 0.75), 0 0 26px rgba(255, 45, 149, 0.4);
+}
+
+.VPNavBar .VPNavBarMenuLink:hover,
+.VPNavBar .VPNavBarMenuLink.active {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+}
+
+/* ============ 正文 ============ */
+
+/* 一级标题：霓虹辉光 */
+.vp-doc h1 {
+  text-shadow:
+    0 0 18px rgba(255, 45, 149, 0.55),
+    0 0 46px rgba(0, 229, 255, 0.3);
+}
+
+/* 二级标题：电光蓝辉光 + 霓虹渐变顶线 */
+.vp-doc h2 {
+  border-top: none;
+  padding-top: 1.8rem;
+  margin-top: 2.4rem;
+  color: #8df3ff;
+  text-shadow: 0 0 14px rgba(0, 229, 255, 0.55), 0 0 34px rgba(0, 229, 255, 0.22);
+  position: relative;
+}
+.vp-doc h2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff2d95, #b537f2 45%, #00e5ff);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+  border-radius: 2px;
+}
+
+.vp-doc h3 {
+  color: #ff85bd;
+  text-shadow: 0 0 10px rgba(255, 45, 149, 0.45);
+}
+
+/* 链接：霓虹粉 + 悬停发光 */
+.vp-doc a {
+  font-weight: 500;
+  color: var(--neon-pink);
+  transition: text-shadow 0.25s ease, color 0.25s ease;
+}
+.vp-doc a:hover {
+  color: #ff7cc0;
+  text-shadow: var(--glow-pink);
+}
+
+/* 引用块：霓虹左边框 */
+.vp-doc blockquote {
+  border-left: 3px solid var(--neon-blue);
+  box-shadow: -4px 0 18px -6px rgba(0, 229, 255, 0.45);
+  background: rgba(0, 229, 255, 0.04);
+  border-radius: 0 8px 8px 0;
+}
+
+/* —— 行内代码：荧光绿发光 —— */
+.vp-doc :not(pre) > code {
+  color: #63ff3a;
+  background: rgba(57, 255, 20, 0.08);
+  border: 1px solid rgba(57, 255, 20, 0.3);
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-weight: 500;
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+}
+
+/* —— 代码块容器：电光蓝霓虹描边 + 双色辉光 —— */
+.vp-doc div[class*='language-'] {
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px rgba(255, 45, 149, 0.08) inset,
+    0 10px 36px rgba(0, 0, 0, 0.6),
+    0 0 26px rgba(0, 229, 255, 0.22),
+    0 0 56px rgba(255, 45, 149, 0.1);
+  overflow: hidden;
+}
+
+.vp-doc div[class*='language-'] .highlight-lines {
+  background: rgba(0, 229, 255, 0.1);
+}
+
+/* 代码块语言标签：电光蓝 */
+.vp-doc div[class*='language-'] > span.lang {
+  color: var(--neon-blue);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.7);
+}
+
+/* —— 表格 —— */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border-color: rgba(0, 229, 255, 0.25);
+}
+.vp-doc tr:nth-child(2n) {
+  background-color: rgba(181, 55, 242, 0.07);
+}
+.vp-doc th {
+  background: linear-gradient(90deg, rgba(255, 45, 149, 0.16), rgba(0, 229, 255, 0.16));
+  color: var(--neon-blue);
+}
+
+/* ============ 首页 Hero 按钮发光 ============ */
+
+.VPButton.brand {
+  box-shadow: 0 0 18px rgba(255, 45, 149, 0.45), 0 0 40px rgba(255, 45, 149, 0.18);
+}
+.VPButton.brand:hover {
+  box-shadow: 0 0 22px rgba(255, 45, 149, 0.75), 0 0 52px rgba(255, 45, 149, 0.35);
+}
+.VPButton.alt:hover {
+  box-shadow: var(--glow-blue);
+}
+
+/* ============ 首页特性卡片 ============ */
+
+.VPFeature {
+  border: 1px solid rgba(181, 55, 242, 0.28);
+  background: linear-gradient(180deg, rgba(26, 13, 51, 0.85), rgba(13, 6, 32, 0.9));
+  border-radius: 14px;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+.VPFeature:hover {
+  border-color: rgba(0, 229, 255, 0.55);
+  box-shadow:
+    0 0 22px rgba(0, 229, 255, 0.25),
+    0 0 48px rgba(255, 45, 149, 0.16);
+  transform: translateY(-2px);
+}
+.VPFeature .title {
+  font-weight: 700;
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px rgba(255, 45, 149, 0.5);
+}
+.VPFeature .icon {
+  color: var(--neon-blue);
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.7));
+}
+
+/* ============ 文章列表页（posts/index.md） ============ */
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 28px 0 48px;
+}
+
+.post-item {
+  display: block;
+  padding: 22px 26px;
+  background: linear-gradient(180deg, rgba(26, 13, 51, 0.85), rgba(13, 6, 32, 0.92));
+  border: 1px solid rgba(181, 55, 242, 0.25);
+  border-radius: 14px;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+.post-item:hover {
+  border-color: rgba(255, 45, 149, 0.6);
+  box-shadow:
+    0 0 22px rgba(255, 45, 149, 0.28),
+    0 0 52px rgba(0, 229, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.post-title {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+.post-item:hover .post-title {
+  color: var(--neon-pink);
+  text-shadow: 0 0 12px rgba(255, 45, 149, 0.65);
+}
+
+.post-excerpt {
+  margin: 0 0 14px;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--vp-c-text-3);
+  font-family: var(--vp-font-family-mono);
+}
+
+/* 标签：粉 / 蓝交替霓虹 */
+.post-tag {
+  color: var(--neon-blue);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+}
+.post-tag:nth-child(odd) {
+  color: var(--neon-pink);
+  background: rgba(255, 45, 149, 0.08);
+  border-color: rgba(255, 45, 149, 0.4);
+  text-shadow: 0 0 8px rgba(255, 45, 149, 0.5);
+}
+
+/* ============ 侧边栏 / 大纲激活态辉光 ============ */
+
+.VPSidebarItem.is-active .link .text,
+.VPLocalNav .VPLocalNavOutlineDropdown button:hover {
+  color: var(--neon-pink);
+}
+
+/* ============ 页脚 ============ */
+
+.VPFooter {
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, rgba(255, 45, 149, 0.6), rgba(0, 229, 255, 0.6), transparent) 1;
+}
