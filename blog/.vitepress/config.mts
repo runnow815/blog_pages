@@ -58,7 +58,8 @@ export default defineConfig({
           items: [
             { text: '全部文章', link: '/posts/' },
             { text: 'Hello World：博客开篇', link: '/posts/hello-world' },
-            { text: '夜间阅读：赛博朋克霓虹风配色实践', link: '/posts/dark-tech-night' }
+            { text: '夜间阅读：赛博朋克霓虹风配色实践', link: '/posts/dark-tech-night' },
+            { text: '测试能否上传文章', link: '/posts/test' }
           ]
         }
       ]
